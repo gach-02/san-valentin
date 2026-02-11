@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para Ti ❤️</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <main id="app">
+
+    <!-- PANTALLA 0 (INTRO) -->
+    <section class="screen active" id="screen-0">
+      <h1>💘 Nuestro primer San Valentín</h1>
+      <p>Espero que te guste mi sorpresa.</p>
+      <p>¿Preparada para jugar? 😌</p>
+      <button id="startBtn">Preparada para jugar</button>
+    </section>
+
+    <!-- PANTALLA 1 (FECHA) -->
+    <section class="screen" id="screen-1">
+      <h1>💖 Empecemos</h1>
+      <p>¿Qué día empezamos a salir?</p>
+
+      <input type="text" id="dateInput" placeholder="dd-mm-yyyy" autocomplete="off" />
+      <button id="dateBtn">Comprobar</button>
+      <p id="dateFeedback" class="feedback"></p>
+    </section>
+
+    <!-- PANTALLA 2 (REAL O IA) -->
+    <section class="screen full-screen" id="screen-2">
+
+      <header class="ai-header">
+        <h1>🤖 ¿Real o IA?</h1>
+        <p>De estas 7 fotos… <b>3 están hechas con IA</b>.</p>
+        <p>Selecciona exactamente <b>3</b></p>
+        <div class="pickbar">
+          <b><span id="pickCount">0</span>/3 seleccionadas</b>
+        </div>
+      </header>
+
+      <div class="grid-full" id="photoGrid">
+        <button class="photoBtn" data-id="1"><img src="assets/images/foto1.jpeg" alt="Foto 1"></button>
+        <button class="photoBtn" data-id="2"><img src="assets/images/foto2.jpeg" alt="Foto 2"></button>
+        <button class="photoBtn" data-id="3"><img src="assets/images/foto3.jpeg" alt="Foto 3"></button>
+        <button class="photoBtn" data-id="4"><img src="assets/images/foto4.jpeg" alt="Foto 4"></button>
+        <button class="photoBtn" data-id="5"><img src="assets/images/foto5.jpeg" alt="Foto 5"></button>
+        <button class="photoBtn" data-id="6"><img src="assets/images/foto6.jpeg" alt="Foto 6"></button>
+        <button class="photoBtn" data-id="7"><img src="assets/images/foto7.jpeg" alt="Foto 7"></button>
+      </div>
+
+      <footer class="ai-footer">
+        <button id="checkAiBtn">Comprobar</button>
+        <p id="imageFeedback" class="feedback"></p>
+        <button id="backBtn" class="secondary">Volver (solo prueba)</button>
+      </footer>
+
+    </section>
+
+    <!-- PANTALLA 3 (CANCIÓN) -->
+    <section class="screen" id="screen-3">
+      <h1>🎵 Nuestra canción</h1>
+      <p>
+        Escucha esta canción y adivina cuál es 😏
+        <br><b>(muy fácil, novi)</b>
+      </p>
+
+      <button id="playSnippetBtn">▶ Reproducir</button>
+
+      <audio id="songAudio" preload="auto">
+        <source src="assets/audio/Cancion.mp3" type="audio/mpeg">
+      </audio>
+
+      <input type="text" id="songInput" placeholder="Escribe el nombre de la canción..." autocomplete="off" />
+      <button id="songCheckBtn">Comprobar</button>
+
+      <p id="songFeedback" class="feedback"></p>
+
+      <button id="backTo2Btn" class="secondary">Volver</button>
+    </section>
+
+    <!-- PANTALLA 4 (FLAPPY) -->
+    <section class="screen" id="screen-4">
+      <h1>🎮 Mini juego</h1>
+      <p>Consigue <b>al menos 5 puntos</b> para llegar a la prueba final…</p>
+      <p><b>para la niña dopamínica 😈</b></p>
+
+      <div class="gameHud">
+        <div>Puntos: <b id="score">0</b>/5</div>
+        <div class="hint">Tocar = salto</div>
+      </div>
+
+      <canvas id="flappyCanvas" width="360" height="520"></canvas>
+
+      <div class="gameButtons">
+        <button id="startGameBtn">Empezar</button>
+        <button id="restartGameBtn" class="secondary">Reiniciar</button>
+      </div>
+
+      <p id="gameFeedback" class="feedback"></p>
+
+      <button id="backTo3Btn" class="secondary">Volver</button>
+    </section>
+
+    <!-- PANTALLA 5 (BURBUJAS - 12) -->
+    <section class="screen" id="screen-5">
+      <h1>🫧 Prueba final</h1>
+      <p>Encuentra la <b>burbuja ganadora</b> 😈</p>
+      <p><b>(solo una te lleva al regalo)</b></p>
+
+      <div class="bubbleGrid" id="bubbleGrid">
+        <button class="bubble" data-b="1">🫧</button>
+        <button class="bubble" data-b="2">🫧</button>
+        <button class="bubble" data-b="3">🫧</button>
+        <button class="bubble" data-b="4">🫧</button>
+        <button class="bubble" data-b="5">🫧</button>
+        <button class="bubble" data-b="6">🫧</button>
+        <button class="bubble" data-b="7">🫧</button>
+        <button class="bubble" data-b="8">🫧</button>
+        <button class="bubble" data-b="9">🫧</button>
+        <button class="bubble" data-b="10">🫧</button>
+        <button class="bubble" data-b="11">🫧</button>
+        <button class="bubble" data-b="12">🫧</button>
+      </div>
+
+      <p id="bubbleFeedback" class="feedback"></p>
+
+      <button id="resetBubblesBtn" class="secondary">Me rindo (reiniciar)</button>
+      <button id="backTo4Btn" class="secondary">Volver</button>
+    </section>
+
+    <!-- PANTALLA 6 (FINAL + CONFETI) -->
+    <section class="screen" id="screen-6">
+      <h1>🎉 FELICIDADES</h1>
+      <p>Has superado todas las pruebas 😌❤️</p>
+
+      <div class="finalCard">
+        <p>
+          <b>Gracias por ser como eres</b>, me alegras la vida cada día un poco más <b>TE QUIERO MUCHO❤️</b>
+          <br><br>
+          <b>Tu regalo es:</b><br>
+          <b>Una noche en un hotel con spa en XXXX ✨</b>
+          <br><br>
+          Para desconectar juntos y mimarte mucho <b>MI NOVIIIIII</b>
+        </p>
+      </div>
+
+      <canvas id="confettiCanvas"></canvas>
+
+      <button id="finalBtn">💖 Fin</button>
+    </section>
+
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

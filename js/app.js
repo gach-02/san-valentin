@@ -122,7 +122,7 @@ document.getElementById("checkAiBtn").addEventListener("click", () => {
   }
 });
 
-document.getElementById("backBtn").addEventListener("click", () => goToScreen(1));
+
 
 // ===== CANCION =====
 const songAudio = document.getElementById("songAudio");

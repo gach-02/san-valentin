@@ -259,3 +259,113 @@ body.fs-mode #app {
   height: 100vh;
   pointer-events: none;
 }
+
+/* =========================
+   MOBILE PREMIUM (NO FONTS)
+   ========================= */
+
+:root{
+  --pink:#ff5e78;
+  --bg1:#ffdbe5;
+  --bg2:#f3a9b7;
+  --card: rgba(255,255,255,0.78);
+  --stroke: rgba(255,255,255,0.45);
+  --shadow: 0 18px 50px rgba(0,0,0,0.14);
+}
+
+* { -webkit-tap-highlight-color: transparent; }
+
+body{
+  background: radial-gradient(1200px 800px at 30% 10%, var(--bg1), transparent),
+              radial-gradient(1000px 700px at 70% 90%, var(--bg2), transparent),
+              linear-gradient(135deg, #ffdde1, #ee9ca7);
+}
+
+/* Tarjeta más “glass” y centrada en móvil */
+#app{
+  background: var(--card);
+  border: 1px solid var(--stroke);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+}
+
+/* Tipografía mejor sin fuentes externas */
+h1{
+  letter-spacing: -0.02em;
+  font-weight: 800;
+}
+p{
+  opacity: 0.95;
+}
+
+/* Botones con look más pro */
+button{
+  border-radius: 16px;
+  font-weight: 700;
+  box-shadow: 0 10px 22px rgba(255,94,120,0.22);
+  transition: transform 0.08s, opacity 0.2s;
+}
+button:active{
+  transform: scale(0.985);
+}
+button.secondary{
+  box-shadow: none;
+}
+
+/* Inputs más bonitos */
+input{
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: rgba(255,255,255,0.9);
+  outline: none;
+}
+input:focus{
+  border-color: rgba(255,94,120,0.45);
+  box-shadow: 0 0 0 4px rgba(255,94,120,0.12);
+}
+
+/* Animación suave entre pantallas */
+.screen.active{
+  animation: fadeUp 240ms ease-out;
+}
+@keyframes fadeUp{
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Ajustes mobile */
+@media (max-width: 420px){
+  #app{
+    width: 92%;
+    padding: 1.4rem;
+    border-radius: 22px;
+  }
+  h1{ font-size: 1.9rem; }
+  input, button{ padding: 0.9rem; }
+}
+
+/* Fullscreen (IA): un poco más compact en móvil */
+body.fs-mode #app{
+  padding: 0.75rem;
+}
+
+.ai-header h1{
+  margin-top: 0.25rem;
+}
+
+.grid-full{
+  gap: 10px;
+  max-width: 560px;
+}
+
+/* Mini mejoras a las fotos */
+.photoBtn img{
+  border-radius: 18px;
+}
+.photoBtn.selected::after{
+  box-shadow: 0 10px 18px rgba(39,174,96,0.25);
+}
+.ai-footer{
+  box-shadow: 0 12px 30px rgba(0,0,0,0.10);
+}
